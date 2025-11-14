@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Directional Light Scene</title>
+    
+    <meta name="scene:id" content="directional_light_scene">
+    <meta name="scene:name" content="Directional Light Scene">
+    <meta name="scene:author" content="DDDBrowser Examples">
+    <meta name="scene:rating" content="GENERAL">
+    <meta name="scene:thumbnail" content="./assets/icon.jpg">
+    <meta name="scene:manifesturl" content="./directional-light.html">
+    
+    <script id="blazium-scene" type="application/vnd.blazium.scene+json">
+    {
+      "name": "Directional Light Scene",
+      "version": "1.0",
+      "schemaVersion": "1.0",
+      "description": "Scene demonstrating directional light with shadows and capsule model",
+      "assets": [
+        {
+          "id": "capsule-model",
+          "type": "model",
+          "uri": "./assets/capsule.obj",
+          "mediaType": "model/obj"
+        },
+        {
+          "id": "capsule-material",
+          "type": "material",
+          "uri": "./assets/capsule.mtl",
+          "mediaType": "model/mtl"
+        },
+        {
+          "id": "capsule-texture",
+          "type": "texture",
+          "uri": "./assets/capsule0.jpg",
+          "mediaType": "image/jpeg"
+        }
+      ],
+      "instances": [
+        {
+          "id": "capsule-instance",
+          "asset": "capsule-model",
+          "position": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0}
+        },
+        {
+          "id": "directional-light-1",
+          "type": "directionalLight",
+          "position": {"x": 0.0, "y": 10.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "light": {
+            "color": {"x": 1.0, "y": 1.0, "z": 1.0},
+            "intensity": 1.5,
+            "enabled": true,
+            "direction": {"x": 0.0, "y": -1.0, "z": 0.0},
+            "shadowEnabled": true,
+            "shadowBias": 0.005,
+            "shadowMapResolution": 2048,
+            "shadowOrthoSize": 50.0
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <h1>Directional Light Scene</h1>
+    <p>Scene demonstrating directional light with shadows enabled, pointing downward.</p>
+</body>
+</html>
+

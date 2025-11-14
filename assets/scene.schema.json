@@ -1,0 +1,276 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Blazium Scene",
+  "type": "object",
+  "required": ["name", "version", "schemaVersion", "assets"],
+  "properties": {
+    "name": { "type": "string", "minLength": 1 },
+    "version": { "type": "string" },
+    "description": { "type": "string" },
+    "schemaVersion": { "type": "string" },
+    "id": { "type": "string" },
+    "author": { "type": "string" },
+    "rating": {
+      "type": "string",
+      "enum": ["GENERAL", "MODERATE", "ADULT"]
+    },
+    "thumbnail": { "type": "string", "format": "uri" },
+    "manifestUrl": { "type": "string", "format": "uri" },
+    "world": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "position": { "$ref": "#/$defs/vec3" }
+      },
+      "additionalProperties": false
+    },
+    "spawn": { "$ref": "#/$defs/vec3" },
+    "movementBounds": {
+      "type": "object",
+      "properties": {
+        "min": { "$ref": "#/$defs/vec3" },
+        "max": { "$ref": "#/$defs/vec3" }
+      },
+      "required": ["min", "max"],
+      "additionalProperties": false
+    },
+    "assets": {
+      "type": "array",
+      "minItems": 0,
+      "items": { "$ref": "#/$defs/asset" }
+    },
+    "instances": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/instance" }
+    },
+    "gamemode": {
+      "type": "object",
+      "properties": {
+        "file": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": ["file"],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "vec3": {
+      "type": "object",
+      "required": ["x", "y", "z"],
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "z": { "type": "number" }
+      },
+      "additionalProperties": false
+    },
+    "scaleVec3": {
+      "allOf": [
+        { "$ref": "#/$defs/vec3" },
+        {
+          "properties": {
+            "x": { "type": "number", "exclusiveMinimum": 0 },
+            "y": { "type": "number", "exclusiveMinimum": 0 },
+            "z": { "type": "number", "exclusiveMinimum": 0 }
+          }
+        }
+      ]
+    },
+    "asset": {
+      "type": "object",
+      "required": ["id", "type", "uri", "mediaType"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": {
+          "type": "string",
+          "enum": ["model", "script", "material", "texture"]
+        },
+        "uri": { "type": "string", "format": "uri" },
+        "mediaType": { "type": "string" },
+        "collider": { "$ref": "#/$defs/collider" }
+      },
+      "additionalProperties": false
+    },
+    "instance": {
+      "type": "object",
+      "required": ["id", "position", "rotation", "scale"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": {
+          "type": "string",
+          "enum": ["model", "pointLight", "directionalLight", "spotLight", "portal"],
+          "default": "model"
+        },
+        "asset": { "type": "string" },
+        "position": { "$ref": "#/$defs/vec3" },
+        "rotation": { "$ref": "#/$defs/vec3" },
+        "scale": { "$ref": "#/$defs/scaleVec3" },
+        "script": { "$ref": "#/$defs/instanceScript" },
+        "light": { "$ref": "#/$defs/lightProperties" },
+        "portal": { "$ref": "#/$defs/portalProperties" },
+        "collider": { "$ref": "#/$defs/collider" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "type": { "const": "model" } }
+          },
+          "then": {
+            "required": ["asset"]
+          }
+        },
+        {
+          "if": {
+            "properties": { "type": { "enum": ["pointLight", "directionalLight", "spotLight"] } }
+          },
+          "then": {
+            "required": ["light"]
+          }
+        },
+        {
+          "if": {
+            "properties": { "type": { "const": "portal" } }
+          },
+          "then": {
+            "required": ["portal"]
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "instanceScript": {
+      "type": "object",
+      "required": ["file"],
+      "properties": {
+        "file": {
+          "type": "string",
+          "minLength": 1
+        },
+        "data": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    "lightProperties": {
+      "type": "object",
+      "properties": {
+        "color": { "$ref": "#/$defs/vec3" },
+        "intensity": { "type": "number", "exclusiveMinimum": 0 },
+        "enabled": { "type": "boolean" },
+        "range": { "type": "number", "exclusiveMinimum": 0 },
+        "attenuation": {
+          "type": "object",
+          "properties": {
+            "constant": { "type": "number", "minimum": 0 },
+            "linear": { "type": "number", "minimum": 0 },
+            "quadratic": { "type": "number", "minimum": 0 }
+          },
+          "required": ["constant", "linear", "quadratic"],
+          "additionalProperties": false
+        },
+        "direction": { "$ref": "#/$defs/vec3" },
+        "cutoff": { "type": "number", "minimum": 0, "maximum": 90 },
+        "outerCutoff": { "type": "number", "minimum": 0, "maximum": 90 },
+        "shadowEnabled": { "type": "boolean" },
+        "shadowBias": { "type": "number", "minimum": 0 },
+        "shadowMapResolution": { "type": "number", "minimum": 256, "maximum": 4096 },
+        "shadowOrthoSize": { "type": "number", "exclusiveMinimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "portalProperties": {
+      "type": "object",
+      "required": ["destinationUrl"],
+      "properties": {
+        "destinationUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "radius": {
+          "type": "number",
+          "minimum": 0,
+          "default": 0
+        },
+        "autoTrigger": {
+          "type": "boolean",
+          "default": false
+        },
+        "manualTrigger": {
+          "type": "boolean",
+          "default": true
+        },
+        "scriptTrigger": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "collider": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["box", "capsule", "sphere", "mesh"]
+        },
+        "box": {
+          "type": "object",
+          "properties": {
+            "size": { "$ref": "#/$defs/vec3" }
+          },
+          "required": ["size"],
+          "additionalProperties": false
+        },
+        "capsule": {
+          "type": "object",
+          "properties": {
+            "halfHeight": { "type": "number", "exclusiveMinimum": 0 },
+            "radius": { "type": "number", "exclusiveMinimum": 0 }
+          },
+          "required": ["halfHeight", "radius"],
+          "additionalProperties": false
+        },
+        "sphere": {
+          "type": "object",
+          "properties": {
+            "radius": { "type": "number", "exclusiveMinimum": 0 }
+          },
+          "required": ["radius"],
+          "additionalProperties": false
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "type": { "const": "box" } }
+          },
+          "then": {
+            "required": ["box"]
+          }
+        },
+        {
+          "if": {
+            "properties": { "type": { "const": "capsule" } }
+          },
+          "then": {
+            "required": ["capsule"]
+          }
+        },
+        {
+          "if": {
+            "properties": { "type": { "const": "sphere" } }
+          },
+          "then": {
+            "required": ["sphere"]
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

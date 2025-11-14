@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Scene With Metadata</title>
+    
+    <meta name="scene:id" content="test_metadata_scene">
+    <meta name="scene:name" content="Scene With Metadata">
+    <meta name="scene:author" content="Test Author">
+    <meta name="scene:rating" content="GENERAL">
+    <meta name="scene:thumbnail" content="./assets/icon.jpg">
+    <meta name="scene:manifesturl" content="./scene_with_metadata.html">
+    <meta name="scene:world:id" content="test_world">
+    <meta name="scene:world:position" content="1024,0,-768">
+    
+    <script id="blazium-scene" type="application/vnd.blazium.scene+json">
+    {
+      "name": "Scene With Metadata",
+      "version": "1.0",
+      "schemaVersion": "1.0",
+      "description": "Complete scene JSON with all metadata fields",
+      "id": "test_metadata_scene",
+      "author": "Test Author",
+      "rating": "GENERAL",
+      "thumbnail": "./assets/icon.jpg",
+      "manifestUrl": "./scene_with_metadata.html",
+      "world": {
+        "id": "test_world",
+        "position": {"x": 1024.0, "y": 0.0, "z": -768.0}
+      },
+      "assets": [
+        {
+          "id": "model1",
+          "type": "model",
+          "uri": "./assets/capsule.obj",
+          "mediaType": "model/obj"
+        }
+      ],
+      "instances": [
+        {
+          "id": "instance1",
+          "asset": "model1",
+          "position": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0}
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <h1>Scene With Metadata</h1>
+    <p>Complete scene JSON with all metadata fields</p>
+</body>
+</html>
+

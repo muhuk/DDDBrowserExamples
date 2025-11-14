@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Complex Scene</title>
+    
+    <meta name="scene:id" content="complex_scene">
+    <meta name="scene:name" content="Complex Scene">
+    <meta name="scene:author" content="DDDBrowser Examples">
+    <meta name="scene:rating" content="GENERAL">
+    <meta name="scene:thumbnail" content="./assets/icon.jpg">
+    <meta name="scene:manifesturl" content="./scene_complex.html">
+    
+    <script id="blazium-scene" type="application/vnd.blazium.scene+json">
+    {
+      "name": "Complex Scene",
+      "version": "1.0",
+      "schemaVersion": "1.0",
+      "description": "Complex test scene with all features",
+      "assets": [
+        {
+          "id": "model1",
+          "type": "model",
+          "uri": "./assets/capsule.obj",
+          "mediaType": "model/obj"
+        },
+        {
+          "id": "model2",
+          "type": "model",
+          "uri": "./assets/capsule.obj",
+          "mediaType": "model/obj"
+        },
+        {
+          "id": "script1",
+          "type": "script",
+          "uri": "./assets/pingpong.luau",
+          "mediaType": "application/x-luau"
+        }
+      ],
+      "instances": [
+        {
+          "id": "model1",
+          "type": "model",
+          "asset": "model1",
+          "position": {"x": -5.0, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 45.0, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 2.0},
+          "script": {
+            "file": "script1",
+            "data": {
+              "boundingRadius": 10.0
+            }
+          }
+        },
+        {
+          "id": "model2",
+          "type": "model",
+          "asset": "model2",
+          "position": {"x": 5.0, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": -45.0, "z": 0.0},
+          "scale": {"x": 1.5, "y": 1.5, "z": 1.5}
+        },
+        {
+          "id": "point1",
+          "type": "pointLight",
+          "position": {"x": -5.0, "y": 5.0, "z": 5.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "light": {
+            "color": {"x": 1.0, "y": 0.0, "z": 0.0},
+            "intensity": 2.5,
+            "enabled": true,
+            "range": 20.0,
+            "attenuation": {
+              "constant": 1.0,
+              "linear": 0.09,
+              "quadratic": 0.032
+            }
+          }
+        },
+        {
+          "id": "point2",
+          "type": "pointLight",
+          "position": {"x": 5.0, "y": 5.0, "z": 5.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "light": {
+            "color": {"x": 0.0, "y": 0.0, "z": 1.0},
+            "intensity": 2.5,
+            "enabled": true,
+            "range": 20.0,
+            "attenuation": {
+              "constant": 1.0,
+              "linear": 0.09,
+              "quadratic": 0.032
+            }
+          }
+        },
+        {
+          "id": "dir1",
+          "type": "directionalLight",
+          "position": {"x": 0.0, "y": 15.0, "z": 0.0},
+          "rotation": {"x": 30.0, "y": 45.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "light": {
+            "color": {"x": 1.0, "y": 1.0, "z": 0.9},
+            "intensity": 1.5,
+            "enabled": true,
+            "direction": {"x": 0.0, "y": -1.0, "z": 0.0},
+            "shadowEnabled": true,
+            "shadowBias": 0.01,
+            "shadowMapResolution": 2048,
+            "shadowOrthoSize": 100.0
+          }
+        },
+        {
+          "id": "spot1",
+          "type": "spotLight",
+          "position": {"x": 0.0, "y": 10.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "light": {
+            "color": {"x": 1.0, "y": 1.0, "z": 1.0},
+            "intensity": 4.0,
+            "enabled": true,
+            "direction": {"x": 0.0, "y": -1.0, "z": 0.0},
+            "cutoff": 20.0,
+            "outerCutoff": 30.0,
+            "range": 40.0,
+            "attenuation": {
+              "constant": 1.0,
+              "linear": 0.1,
+              "quadratic": 0.05
+            },
+            "shadowEnabled": false
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <h1>Complex Scene</h1>
+    <p>Complex test scene with all features</p>
+</body>
+</html>
+

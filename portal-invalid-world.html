@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Portal Invalid World Scene</title>
+    
+    <meta name="scene:id" content="portal_invalid_world_scene">
+    <meta name="scene:name" content="Portal Invalid World Scene">
+    <meta name="scene:author" content="DDDBrowser Examples">
+    <meta name="scene:rating" content="GENERAL">
+    <meta name="scene:thumbnail" content="./assets/icon.jpg">
+    <meta name="scene:manifesturl" content="./portal-invalid-world.html">
+    <meta name="scene:world:id" content="world_a">
+    <meta name="scene:world:position" content="0,0,0">
+    
+    <script id="blazium-scene" type="application/vnd.blazium.scene+json">
+    {
+      "name": "Portal Invalid World Scene",
+      "version": "1.0",
+      "schemaVersion": "1.0",
+      "description": "Scene with portal to different world",
+      "world": {
+        "id": "world_a",
+        "position": {"x": 0.0, "y": 0.0, "z": 0.0}
+      },
+      "assets": [
+        {
+          "id": "capsule-model",
+          "type": "model",
+          "uri": "./assets/capsule.obj",
+          "mediaType": "model/obj"
+        },
+        {
+          "id": "capsule-material",
+          "type": "material",
+          "uri": "./assets/capsule.mtl",
+          "mediaType": "model/mtl"
+        },
+        {
+          "id": "capsule-texture",
+          "type": "texture",
+          "uri": "./assets/capsule0.jpg",
+          "mediaType": "image/jpeg"
+        }
+      ],
+      "instances": [
+        {
+          "id": "capsule-instance",
+          "asset": "capsule-model",
+          "position": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0}
+        },
+        {
+          "id": "portal-invalid",
+          "type": "portal",
+          "position": {"x": 5.0, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./portal-destination.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <h1>Portal Invalid World Scene</h1>
+    <p>Scene with portal to different world (should be inactive).</p>
+</body>
+</html>
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Scene with Gamemode</title>
+    
+    <meta name="scene:id" content="gamemode_test_scene">
+    <meta name="scene:name" content="Scene with Gamemode">
+    <meta name="scene:author" content="Test Author">
+    <meta name="scene:rating" content="GENERAL">
+    <meta name="scene:thumbnail" content="./assets/icon.jpg">
+    <meta name="scene:manifesturl" content="./scene_with_gamemode.html">
+    
+    <script id="blazium-scene" type="application/vnd.blazium.scene+json">
+    {
+      "name": "Scene with Gamemode",
+      "version": "1.0",
+      "schemaVersion": "1.0",
+      "description": "Test scene with gamemode",
+      "id": "gamemode_test_scene",
+      "author": "Test Author",
+      "rating": "GENERAL",
+      "thumbnail": "./assets/icon.jpg",
+      "gamemode": {
+        "file": "gamemode_test.luau"
+      },
+      "assets": [
+        {
+          "id": "model1",
+          "type": "model",
+          "uri": "./assets/capsule.obj",
+          "mediaType": "model/obj"
+        },
+        {
+          "id": "gamemode-script",
+          "type": "script",
+          "uri": "./assets/gamemode_test.luau",
+          "mediaType": "application/x-luau"
+        },
+        {
+          "id": "entity-script",
+          "type": "script",
+          "uri": "./assets/entity_listener.luau",
+          "mediaType": "application/x-luau"
+        }
+      ],
+      "instances": [
+        {
+          "id": "instance1",
+          "asset": "model1",
+          "position": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "script": {
+            "file": "entity-script",
+            "data": {
+              "boundingRadius": 12.0
+            }
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <h1>Scene with Gamemode</h1>
+    <p>Test scene with gamemode</p>
+</body>
+</html>
+

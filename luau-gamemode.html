@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Luau Gamemode Scene</title>
+    
+    <meta name="scene:id" content="luau_gamemode_scene">
+    <meta name="scene:name" content="Luau Gamemode Scene">
+    <meta name="scene:author" content="DDDBrowser Examples">
+    <meta name="scene:rating" content="GENERAL">
+    <meta name="scene:thumbnail" content="./assets/icon.jpg">
+    <meta name="scene:manifesturl" content="./luau-gamemode.html">
+    
+    <script id="blazium-scene" type="application/vnd.blazium.scene+json">
+    {
+      "name": "Luau Gamemode Scene",
+      "version": "1.0",
+      "schemaVersion": "1.0",
+      "description": "Capsule with gamemode script demonstrating localStorage and events",
+      "gamemode": {
+        "file": "gamemode_test.luau"
+      },
+      "assets": [
+        {
+          "id": "capsule-model",
+          "type": "model",
+          "uri": "./assets/capsule.obj",
+          "mediaType": "model/obj"
+        },
+        {
+          "id": "capsule-material",
+          "type": "material",
+          "uri": "./assets/capsule.mtl",
+          "mediaType": "model/mtl"
+        },
+        {
+          "id": "capsule-texture",
+          "type": "texture",
+          "uri": "./assets/capsule0.jpg",
+          "mediaType": "image/jpeg"
+        },
+        {
+          "id": "gamemode-script",
+          "type": "script",
+          "uri": "./assets/gamemode_test.luau",
+          "mediaType": "application/x-luau"
+        },
+        {
+          "id": "entity-script",
+          "type": "script",
+          "uri": "./assets/entity_listener.luau",
+          "mediaType": "application/x-luau"
+        }
+      ],
+      "instances": [
+        {
+          "id": "capsule-instance",
+          "asset": "capsule-model",
+          "position": {"x": 0.0, "y": 5.0, "z": 0.0},
+          "rotation": {"x": 90.0, "y": 90.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "script": {
+            "file": "entity-script",
+            "data": {
+              "boundingRadius": 12.0
+            }
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <h1>Luau Gamemode Scene</h1>
+    <p>Capsule with gamemode script demonstrating localStorage persistence and event system.</p>
+</body>
+</html>
+

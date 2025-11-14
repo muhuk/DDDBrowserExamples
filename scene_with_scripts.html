@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Scene With Scripts</title>
+    
+    <meta name="scene:id" content="scene_with_scripts">
+    <meta name="scene:name" content="Scene With Scripts">
+    <meta name="scene:author" content="DDDBrowser Examples">
+    <meta name="scene:rating" content="GENERAL">
+    <meta name="scene:thumbnail" content="./assets/icon.jpg">
+    <meta name="scene:manifesturl" content="./scene_with_scripts.html">
+    
+    <script id="blazium-scene" type="application/vnd.blazium.scene+json">
+    {
+      "name": "Scene With Scripts",
+      "version": "1.0",
+      "schemaVersion": "1.0",
+      "description": "Test scene with entities that have scripts",
+      "assets": [
+        {
+          "id": "model1",
+          "type": "model",
+          "uri": "./assets/capsule.obj",
+          "mediaType": "model/obj"
+        },
+        {
+          "id": "script1",
+          "type": "script",
+          "uri": "./assets/pingpong.luau",
+          "mediaType": "application/x-luau"
+        }
+      ],
+      "instances": [
+        {
+          "id": "instance1",
+          "type": "model",
+          "asset": "model1",
+          "position": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "script": {
+            "file": "script1",
+            "data": {
+              "boundingRadius": 12.0
+            }
+          }
+        },
+        {
+          "id": "point1",
+          "type": "pointLight",
+          "position": {"x": 5.0, "y": 5.0, "z": 5.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "light": {
+            "color": {"x": 1.0, "y": 1.0, "z": 1.0},
+            "intensity": 1.0,
+            "enabled": true,
+            "range": 10.0,
+            "attenuation": {
+              "constant": 1.0,
+              "linear": 0.09,
+              "quadratic": 0.032
+            }
+          },
+          "script": {
+            "file": "script1",
+            "data": {}
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <h1>Scene With Scripts</h1>
+    <p>Test scene with entities that have scripts</p>
+</body>
+</html>
+

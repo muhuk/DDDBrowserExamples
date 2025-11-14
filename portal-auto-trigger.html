@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Portal Auto-Trigger Scene</title>
+    
+    <meta name="scene:id" content="portal_auto_trigger_scene">
+    <meta name="scene:name" content="Portal Auto-Trigger Scene">
+    <meta name="scene:author" content="DDDBrowser Examples">
+    <meta name="scene:rating" content="GENERAL">
+    <meta name="scene:thumbnail" content="./assets/icon.jpg">
+    <meta name="scene:manifesturl" content="./portal-auto-trigger.html">
+    <meta name="scene:world:id" content="portal_world">
+    <meta name="scene:world:position" content="0,0,0">
+    
+    <script id="blazium-scene" type="application/vnd.blazium.scene+json">
+    {
+      "name": "Portal Auto-Trigger Scene",
+      "version": "1.0",
+      "schemaVersion": "1.0",
+      "description": "Scene with auto-triggering portal",
+      "world": {
+        "id": "portal_world",
+        "position": {"x": 0.0, "y": 0.0, "z": 0.0}
+      },
+      "assets": [
+        {
+          "id": "capsule-model",
+          "type": "model",
+          "uri": "./assets/capsule.obj",
+          "mediaType": "model/obj"
+        },
+        {
+          "id": "capsule-material",
+          "type": "material",
+          "uri": "./assets/capsule.mtl",
+          "mediaType": "model/mtl"
+        },
+        {
+          "id": "capsule-texture",
+          "type": "texture",
+          "uri": "./assets/capsule0.jpg",
+          "mediaType": "image/jpeg"
+        }
+      ],
+      "instances": [
+        {
+          "id": "capsule-instance",
+          "asset": "capsule-model",
+          "position": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0}
+        },
+        {
+          "id": "portal-auto",
+          "type": "portal",
+          "position": {"x": 0.0, "y": 0.0, "z": 5.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./portal-destination.html",
+            "radius": 2.0,
+            "autoTrigger": true,
+            "manualTrigger": false,
+            "scriptTrigger": false
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <h1>Portal Auto-Trigger Scene</h1>
+    <p>Scene with auto-triggering portal.</p>
+</body>
+</html>
+

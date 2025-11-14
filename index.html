@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>DDDBrowser Examples Hub</title>
+    
+    <meta name="scene:id" content="examples_hub">
+    <meta name="scene:name" content="DDDBrowser Examples Hub">
+    <meta name="scene:author" content="DDDBrowser Team">
+    <meta name="scene:rating" content="GENERAL">
+    <meta name="scene:thumbnail" content="./assets/icon.jpg">
+    <meta name="scene:manifesturl" content="./index.html">
+    <meta name="scene:world:id" content="examples_world">
+    <meta name="scene:world:position" content="0,0,0">
+    
+    <script id="blazium-scene" type="application/vnd.blazium.scene+json">
+    {
+      "name": "DDDBrowser Examples Hub",
+      "version": "1.0",
+      "schemaVersion": "1.0",
+      "description": "Hub scene with portals to all example test scenes arranged in a circle",
+      "id": "examples_hub",
+      "author": "DDDBrowser Team",
+      "rating": "GENERAL",
+      "thumbnail": "./assets/icon.jpg",
+      "manifestUrl": "./index.html",
+      "world": {
+        "id": "examples_world",
+        "position": {"x": 0.0, "y": 0.0, "z": 0.0}
+      },
+      "assets": [
+        {
+          "id": "capsule-model",
+          "type": "model",
+          "uri": "./assets/capsule.obj",
+          "mediaType": "model/obj"
+        },
+        {
+          "id": "capsule-material",
+          "type": "material",
+          "uri": "./assets/capsule.mtl",
+          "mediaType": "model/mtl"
+        },
+        {
+          "id": "capsule-texture",
+          "type": "texture",
+          "uri": "./assets/capsule0.jpg",
+          "mediaType": "image/jpeg"
+        }
+      ],
+      "instances": [
+        {
+          "id": "center-capsule",
+          "asset": "capsule-model",
+          "position": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 2.0}
+        },
+        {
+          "id": "directional-light-center",
+          "type": "directionalLight",
+          "position": {"x": 0.0, "y": 20.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "light": {
+            "color": {"x": 1.0, "y": 1.0, "z": 1.0},
+            "intensity": 1.5,
+            "enabled": true,
+            "direction": {"x": 0.0, "y": -1.0, "z": 0.0},
+            "shadowEnabled": true,
+            "shadowBias": 0.005,
+            "shadowMapResolution": 2048,
+            "shadowOrthoSize": 50.0
+          }
+        },
+        {
+          "id": "portal-retry",
+          "type": "portal",
+          "position": {"x": 18.0, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 180.0, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./retry.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-slow",
+          "type": "portal",
+          "position": {"x": 16.97, "y": 0.0, "z": 5.24},
+          "rotation": {"x": 0.0, "y": 162.86, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./slow.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-luau-pingpong",
+          "type": "portal",
+          "position": {"x": 14.14, "y": 0.0, "z": 10.39},
+          "rotation": {"x": 0.0, "y": 135.0, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./luau-pingpong.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-luau-gamemode",
+          "type": "portal",
+          "position": {"x": 10.39, "y": 0.0, "z": 14.14},
+          "rotation": {"x": 0.0, "y": 107.14, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./luau-gamemode.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-metadata-html",
+          "type": "portal",
+          "position": {"x": 5.24, "y": 0.0, "z": 16.97},
+          "rotation": {"x": 0.0, "y": 80.0, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./metadata-html.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-metadata-json",
+          "type": "portal",
+          "position": {"x": 0.0, "y": 0.0, "z": 18.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./metadata-json.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-metadata-both",
+          "type": "portal",
+          "position": {"x": -5.24, "y": 0.0, "z": 16.97},
+          "rotation": {"x": 0.0, "y": -80.0, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./metadata-both.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-metadata-full",
+          "type": "portal",
+          "position": {"x": -10.39, "y": 0.0, "z": 14.14},
+          "rotation": {"x": 0.0, "y": -107.14, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./metadata-full.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-point-light",
+          "type": "portal",
+          "position": {"x": -14.14, "y": 0.0, "z": 10.39},
+          "rotation": {"x": 0.0, "y": -135.0, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./point-light.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-directional-light",
+          "type": "portal",
+          "position": {"x": -16.97, "y": 0.0, "z": 5.24},
+          "rotation": {"x": 0.0, "y": -162.86, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./directional-light.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-spot-light",
+          "type": "portal",
+          "position": {"x": -18.0, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 180.0, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./spot-light.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-all-lights",
+          "type": "portal",
+          "position": {"x": -16.97, "y": 0.0, "z": -5.24},
+          "rotation": {"x": 0.0, "y": 162.86, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./all-lights.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-lights-shadows",
+          "type": "portal",
+          "position": {"x": -14.14, "y": 0.0, "z": -10.39},
+          "rotation": {"x": 0.0, "y": 135.0, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./lights-shadows.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-portal-source",
+          "type": "portal",
+          "position": {"x": -10.39, "y": 0.0, "z": -14.14},
+          "rotation": {"x": 0.0, "y": 107.14, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./portal-source.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-portal-destination",
+          "type": "portal",
+          "position": {"x": -5.24, "y": 0.0, "z": -16.97},
+          "rotation": {"x": 0.0, "y": 80.0, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./portal-destination.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-portal-invalid-world",
+          "type": "portal",
+          "position": {"x": 0.0, "y": 0.0, "z": -18.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./portal-invalid-world.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-portal-invalid-url",
+          "type": "portal",
+          "position": {"x": 5.24, "y": 0.0, "z": -16.97},
+          "rotation": {"x": 0.0, "y": -80.0, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./portal-invalid-url.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-portal-auto-trigger",
+          "type": "portal",
+          "position": {"x": 10.39, "y": 0.0, "z": -14.14},
+          "rotation": {"x": 0.0, "y": -107.14, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./portal-auto-trigger.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-scene-valid",
+          "type": "portal",
+          "position": {"x": 14.14, "y": 0.0, "z": -10.39},
+          "rotation": {"x": 0.0, "y": -135.0, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./scene_valid.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-scene-with-metadata",
+          "type": "portal",
+          "position": {"x": 16.97, "y": 0.0, "z": -5.24},
+          "rotation": {"x": 0.0, "y": -162.86, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./scene_with_metadata.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-scene-with-gamemode",
+          "type": "portal",
+          "position": {"x": 17.32, "y": 0.0, "z": 4.76},
+          "rotation": {"x": 0.0, "y": 164.62, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./scene_with_gamemode.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-scene-metadata-minimal",
+          "type": "portal",
+          "position": {"x": 16.97, "y": 0.0, "z": 5.24},
+          "rotation": {"x": 0.0, "y": 162.86, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./scene_metadata_minimal.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-scene-complex",
+          "type": "portal",
+          "position": {"x": 14.14, "y": 0.0, "z": 10.39},
+          "rotation": {"x": 0.0, "y": 135.0, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./scene_complex.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-scene-multiple-lights",
+          "type": "portal",
+          "position": {"x": 10.39, "y": 0.0, "z": 14.14},
+          "rotation": {"x": 0.0, "y": 107.14, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./scene_multiple_lights.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-scene-single-entity",
+          "type": "portal",
+          "position": {"x": 5.24, "y": 0.0, "z": 16.97},
+          "rotation": {"x": 0.0, "y": 80.0, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./scene_single_entity.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        },
+        {
+          "id": "portal-scene-with-scripts",
+          "type": "portal",
+          "position": {"x": -1.24, "y": 0.0, "z": 17.96},
+          "rotation": {"x": 0.0, "y": 3.95, "z": 0.0},
+          "scale": {"x": 2.0, "y": 2.0, "z": 1.0},
+          "portal": {
+            "destinationUrl": "./scene_with_scripts.html",
+            "radius": 3.0,
+            "autoTrigger": false,
+            "manualTrigger": true,
+            "scriptTrigger": false
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <h1>DDDBrowser Examples Hub</h1>
+    <p>Hub scene with portals to all example test scenes arranged in a circle. Each portal links to a different test scene demonstrating various DDDBrowser features.</p>
+</body>
+</html>
+

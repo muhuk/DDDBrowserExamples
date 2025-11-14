@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Luau PingPong Scene</title>
+    
+    <meta name="scene:id" content="luau_pingpong_scene">
+    <meta name="scene:name" content="Luau PingPong Scene">
+    <meta name="scene:author" content="DDDBrowser Examples">
+    <meta name="scene:rating" content="GENERAL">
+    <meta name="scene:thumbnail" content="./assets/icon.jpg">
+    <meta name="scene:manifesturl" content="./luau-pingpong.html">
+    
+    <script id="blazium-scene" type="application/vnd.blazium.scene+json">
+    {
+      "name": "Luau PingPong Scene",
+      "version": "1.0",
+      "schemaVersion": "1.0",
+      "description": "Capsule animated by Luau ping-pong script",
+      "assets": [
+        {
+          "id": "capsule-model",
+          "type": "model",
+          "uri": "./assets/capsule.obj",
+          "mediaType": "model/obj"
+        },
+        {
+          "id": "capsule-material",
+          "type": "material",
+          "uri": "./assets/capsule.mtl",
+          "mediaType": "model/mtl"
+        },
+        {
+          "id": "capsule-texture",
+          "type": "texture",
+          "uri": "./assets/capsule0.jpg",
+          "mediaType": "image/jpeg"
+        },
+        {
+          "id": "pingpong-script",
+          "type": "script",
+          "uri": "./assets/pingpong.luau",
+          "mediaType": "application/x-luau"
+        }
+      ],
+      "instances": [
+        {
+          "id": "capsule-instance",
+          "asset": "capsule-model",
+          "position": {"x": 0.0, "y": 5.0, "z": 0.0},
+          "rotation": {"x": 90.0, "y": 90.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "script": {
+            "file": "pingpong-script",
+            "data": {
+              "boundingRadius": 12.0
+            }
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <h1>Luau Ping-Pong Scene</h1>
+    <p>Capsule animated between +10 and -10 on the Y axis via Luau.</p>
+</body>
+</html>
+

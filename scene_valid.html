@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Valid Scene</title>
+    
+    <meta name="scene:id" content="valid_scene">
+    <meta name="scene:name" content="Valid Scene">
+    <meta name="scene:author" content="DDDBrowser Examples">
+    <meta name="scene:rating" content="GENERAL">
+    <meta name="scene:thumbnail" content="./assets/icon.jpg">
+    <meta name="scene:manifesturl" content="./scene_valid.html">
+    
+    <script id="blazium-scene" type="application/vnd.blazium.scene+json">
+    {
+      "name": "Valid Scene",
+      "version": "1.0",
+      "schemaVersion": "1.0",
+      "description": "Integration test scene",
+      "assets": [
+        {
+          "id": "model1",
+          "type": "model",
+          "uri": "./assets/capsule.obj",
+          "mediaType": "model/obj"
+        },
+        {
+          "id": "pingpong-script",
+          "type": "script",
+          "uri": "./assets/pingpong.luau",
+          "mediaType": "application/x-luau"
+        }
+      ],
+      "instances": [
+        {
+          "id": "instance1",
+          "asset": "model1",
+          "position": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "script": {
+            "file": "pingpong-script",
+            "data": {
+              "boundingRadius": 12.0
+            }
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <h1>Valid Scene</h1>
+    <p>Integration test scene</p>
+</body>
+</html>
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Minimal Metadata Scene</title>
+    
+    <meta name="scene:id" content="minimal_scene">
+    <meta name="scene:name" content="Minimal Metadata Scene">
+    <meta name="scene:author" content="DDDBrowser Examples">
+    <meta name="scene:rating" content="GENERAL">
+    <meta name="scene:thumbnail" content="./assets/icon.jpg">
+    <meta name="scene:manifesturl" content="./scene_metadata_minimal.html">
+    
+    <script id="blazium-scene" type="application/vnd.blazium.scene+json">
+    {
+      "name": "Minimal Metadata Scene",
+      "version": "1.0",
+      "schemaVersion": "1.0",
+      "description": "Scene with minimal metadata (just id and name)",
+      "id": "minimal_scene",
+      "assets": [
+        {
+          "id": "model1",
+          "type": "model",
+          "uri": "./assets/capsule.obj",
+          "mediaType": "model/obj"
+        }
+      ],
+      "instances": [
+        {
+          "id": "instance1",
+          "asset": "model1",
+          "position": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0}
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <h1>Minimal Metadata Scene</h1>
+    <p>Scene with minimal metadata (just id and name)</p>
+</body>
+</html>
+

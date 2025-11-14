@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Spot Light Scene</title>
+    
+    <meta name="scene:id" content="spot_light_scene">
+    <meta name="scene:name" content="Spot Light Scene">
+    <meta name="scene:author" content="DDDBrowser Examples">
+    <meta name="scene:rating" content="GENERAL">
+    <meta name="scene:thumbnail" content="./assets/icon.jpg">
+    <meta name="scene:manifesturl" content="./spot-light.html">
+    
+    <script id="blazium-scene" type="application/vnd.blazium.scene+json">
+    {
+      "name": "Spot Light Scene",
+      "version": "1.0",
+      "schemaVersion": "1.0",
+      "description": "Scene demonstrating spot light with capsule model",
+      "assets": [
+        {
+          "id": "capsule-model",
+          "type": "model",
+          "uri": "./assets/capsule.obj",
+          "mediaType": "model/obj"
+        },
+        {
+          "id": "capsule-material",
+          "type": "material",
+          "uri": "./assets/capsule.mtl",
+          "mediaType": "model/mtl"
+        },
+        {
+          "id": "capsule-texture",
+          "type": "texture",
+          "uri": "./assets/capsule0.jpg",
+          "mediaType": "image/jpeg"
+        }
+      ],
+      "instances": [
+        {
+          "id": "capsule-instance",
+          "asset": "capsule-model",
+          "position": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0}
+        },
+        {
+          "id": "spot-light-1",
+          "type": "spotLight",
+          "position": {"x": 0.0, "y": 10.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "light": {
+            "color": {"x": 1.0, "y": 1.0, "z": 1.0},
+            "intensity": 3.0,
+            "enabled": true,
+            "direction": {"x": 0.0, "y": -1.0, "z": 0.0},
+            "cutoff": 15.0,
+            "outerCutoff": 25.0,
+            "range": 30.0,
+            "attenuation": {
+              "constant": 1.0,
+              "linear": 0.09,
+              "quadratic": 0.032
+            }
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <h1>Spot Light Scene</h1>
+    <p>Scene demonstrating spot light with cutoff 15°, outer cutoff 25°, and range 30.0.</p>
+</body>
+</html>
+

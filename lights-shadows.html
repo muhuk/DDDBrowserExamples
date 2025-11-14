@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Lights With Shadows Scene</title>
+    
+    <meta name="scene:id" content="lights_shadows_scene">
+    <meta name="scene:name" content="Lights With Shadows Scene">
+    <meta name="scene:author" content="DDDBrowser Examples">
+    <meta name="scene:rating" content="GENERAL">
+    <meta name="scene:thumbnail" content="./assets/icon.jpg">
+    <meta name="scene:manifesturl" content="./lights-shadows.html">
+    
+    <script id="blazium-scene" type="application/vnd.blazium.scene+json">
+    {
+      "name": "Lights With Shadows Scene",
+      "version": "1.0",
+      "schemaVersion": "1.0",
+      "description": "Scene demonstrating lights with various shadow configurations",
+      "assets": [
+        {
+          "id": "capsule-model",
+          "type": "model",
+          "uri": "./assets/capsule.obj",
+          "mediaType": "model/obj"
+        },
+        {
+          "id": "capsule-material",
+          "type": "material",
+          "uri": "./assets/capsule.mtl",
+          "mediaType": "model/mtl"
+        },
+        {
+          "id": "capsule-texture",
+          "type": "texture",
+          "uri": "./assets/capsule0.jpg",
+          "mediaType": "image/jpeg"
+        }
+      ],
+      "instances": [
+        {
+          "id": "capsule-instance",
+          "asset": "capsule-model",
+          "position": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0}
+        },
+        {
+          "id": "directional-light-shadows",
+          "type": "directionalLight",
+          "position": {"x": 0.0, "y": 15.0, "z": 0.0},
+          "rotation": {"x": 30.0, "y": 45.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "light": {
+            "color": {"x": 1.0, "y": 1.0, "z": 0.9},
+            "intensity": 1.5,
+            "enabled": true,
+            "direction": {"x": 0.0, "y": -1.0, "z": 0.0},
+            "shadowEnabled": true,
+            "shadowBias": 0.01,
+            "shadowMapResolution": 2048,
+            "shadowOrthoSize": 100.0
+          }
+        },
+        {
+          "id": "spot-light-shadows",
+          "type": "spotLight",
+          "position": {"x": 0.0, "y": 10.0, "z": 0.0},
+          "rotation": {"x": 0.0, "y": 0.0, "z": 0.0},
+          "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+          "light": {
+            "color": {"x": 1.0, "y": 1.0, "z": 1.0},
+            "intensity": 4.0,
+            "enabled": true,
+            "direction": {"x": 0.0, "y": -1.0, "z": 0.0},
+            "cutoff": 20.0,
+            "outerCutoff": 30.0,
+            "range": 40.0,
+            "attenuation": {
+              "constant": 1.0,
+              "linear": 0.1,
+              "quadratic": 0.05
+            },
+            "shadowEnabled": true,
+            "shadowBias": 0.005,
+            "shadowMapResolution": 1024,
+            "shadowOrthoSize": 50.0
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <h1>Lights With Shadows Scene</h1>
+    <p>Scene demonstrating directional and spot lights with shadow properties enabled, showing different shadow configurations.</p>
+</body>
+</html>
+
